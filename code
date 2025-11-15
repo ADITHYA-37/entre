@@ -1,0 +1,120 @@
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Users, Building2, Shield } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+const Index = () => {
+  const navigate = useNavigate();
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background">
+      {/* Header */}
+      <header className="border-b border-border/50 bg-card/50 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-6">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+            श्री Temple Darshan Portal
+          </h1>
+          <p className="text-muted-foreground mt-1">Divine Journey Begins Here</p>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-16 text-center">
+        <div className="animate-fade-in">
+          <h2 className="text-5xl font-bold mb-4 text-foreground">
+            Welcome to Divine Portal
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
+            Experience seamless darshan, bookings, and temple management with our comprehensive devotee portal system
+          </p>
+        </div>
+
+        {/* Portal Cards */}
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
+          {/* Devotee Portal */}
+          <Card className="p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-2 border-border hover:border-primary/50 animate-fade-in bg-card/80 backdrop-blur-sm">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg">
+              <Users className="w-8 h-8 text-primary-foreground" />
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-foreground">Devotee Portal</h3>
+            <p className="text-muted-foreground mb-6">
+              Browse temples, book darshan, and plan your spiritual journey
+            </p>
+            <Button 
+              onClick={() => navigate("/temples")}
+              className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity"
+              size="lg"
+            >
+              Enter Portal
+            </Button>
+          </Card>
+
+          {/* Seva Portal */}
+          <Card className="p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-2 border-border hover:border-secondary/50 animate-fade-in bg-card/80 backdrop-blur-sm" style={{ animationDelay: '0.1s' }}>
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center shadow-lg">
+              <Shield className="w-8 h-8 text-primary-foreground" />
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-foreground">Seva Portal</h3>
+            <p className="text-muted-foreground mb-6">
+              Access your seva dashboard, view announcements, and manage ticket bookings
+            </p>
+            <Button 
+              onClick={() => navigate("/seva")}
+              variant="outline"
+              className="w-full border-2 hover:bg-secondary/10 hover:border-secondary"
+              size="lg"
+            >
+              Seva Login
+            </Button>
+          </Card>
+
+          {/* Management Portal */}
+          <Card className="p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-2 border-border hover:border-accent/50 animate-fade-in bg-card/80 backdrop-blur-sm" style={{ animationDelay: '0.2s' }}>
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-lg">
+              <Building2 className="w-8 h-8 text-foreground" />
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-foreground">Temple Management</h3>
+            <p className="text-muted-foreground mb-6">
+              Manage accounts, monitor bookings, update weather reports and announcements
+            </p>
+            <Button 
+              onClick={() => navigate("/management")}
+              variant="outline"
+              className="w-full border-2 hover:bg-accent/10 hover:border-accent"
+              size="lg"
+            >
+              Admin Access
+            </Button>
+          </Card>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="container mx-auto px-4 py-16 border-t border-border/50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-3xl font-bold mb-8 text-foreground">Portal Features</h3>
+          <div className="grid md:grid-cols-2 gap-6 text-left">
+            <div className="p-6 rounded-lg bg-card/50 border border-border">
+              <h4 className="font-semibold text-lg mb-2 text-primary">Online Darshan Booking</h4>
+              <p className="text-muted-foreground">Book your temple visit with slot selection, calendar view, and instant confirmation</p>
+            </div>
+            <div className="p-6 rounded-lg bg-card/50 border border-border">
+              <h4 className="font-semibold text-lg mb-2 text-primary">Temple Discovery</h4>
+              <p className="text-muted-foreground">Explore temples, read histories, find nearby temples and travel information</p>
+            </div>
+            <div className="p-6 rounded-lg bg-card/50 border border-border">
+              <h4 className="font-semibold text-lg mb-2 text-secondary">Multi-Language Support</h4>
+              <p className="text-muted-foreground">Access temple histories and information in Telugu, English, Hindi, and more</p>
+            </div>
+            <div className="p-6 rounded-lg bg-card/50 border border-border">
+              <h4 className="font-semibold text-lg mb-2 text-secondary">Real-Time Updates</h4>
+              <p className="text-muted-foreground">Get weather reports, announcements, and booking status updates instantly</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Index;
